@@ -7,7 +7,7 @@ let destination = document.querySelector('.destination');
 function tmp() {
 	let country = "";
 
-	fetch('./countries.json')
+	fetch('../countries.json')
 		.then(res => res.json())
 		.then(data => {
 			country = data;
