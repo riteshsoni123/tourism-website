@@ -67,8 +67,6 @@ cityinput.addEventListener('click', function () {
 			let length = city['length'];
 			length = Number(length);
 
-
-
 			console.log(origin_city.value);
 			console.log(destination_city.value);
 
@@ -100,17 +98,26 @@ cityinput.addEventListener('click', function () {
 					console.log(result);
 					let count = 0;
 					let routelength = result['Routes']['length'];
+
+					let departureDate="";
+					let destinationCity="";
+					let destinationCountry="";
+					let originCity="";
+					let originCountry="";
+					let carrierName="";
+					let price="";
+
 					routelength = Number(routelength);
 					for (let i = 0; i < routelength; i++) {
 
 						let destinationId = result["Routes"][i]["DestinationId"];
-						let price = result["Routes"][i]["Price"];
+						price = result["Routes"][i]["Price"];
 						let datetime = result["Routes"][i]["QuoteDateTime"];
 
 						if (price != undefined) {
 
 							console.log("Number=", count);
-							console.log("price=", price);
+							console.log("price=", price);//printing the price of the flight
 
 							let quoteId = result["Routes"][i]["QuoteIds"][0];
 							let quotelength = result["Quotes"]["length"];
@@ -121,12 +128,13 @@ cityinput.addEventListener('click', function () {
 
 								if (quoteId == result['Quotes'][j]['QuoteId']) {
 
-									let departureDate = result['Quotes'][j]['OutboundLeg']['DepartureDate'];
+									departureDate = result['Quotes'][j]['OutboundLeg']['DepartureDate'];
 									let originId = result['Quotes'][j]['OutboundLeg']['OriginId'];
 									let carrierId = result['Quotes'][j]['OutboundLeg']['CarrierIds'][0];
 									let placelength = result['Places']['length'];
 
-									console.log("DepartureDate=", departureDate);
+									console.log("DepartureDate=", departureDate);//printing the departure date and time
+
 
 									placelength = Number(placelength);
 
@@ -134,20 +142,20 @@ cityinput.addEventListener('click', function () {
 
 										if (destinationId == result['Places'][k]['PlaceId']) {
 
-											let destinationCity = result['Places'][k]['CityName'];
-											let destinationCountry = result['Places'][k]['CountryName'];
+											destinationCity = result['Places'][k]['CityName'];
+											destinationCountry = result['Places'][k]['CountryName'];
 
-											console.log("DestinationCity=", destinationCity, destinationId);
-											console.log("DestinatonCountry=", destinationCountry);
+											console.log("DestinationCity=", destinationCity, destinationId);//printimg the destination city
+											console.log("DestinatonCountry=", destinationCountry);//printing the destination country
 
 										}
 										else if (originId == result['Places'][k]['PlaceId']) {
 
-											let originCity = result['Places'][k]['CityName'];
-											let originCountry = result['Places'][k]['CountryName'];
+											originCity = result['Places'][k]['CityName'];
+											originCountry = result['Places'][k]['CountryName'];
 
-											console.log("OriginCity=", originCity);
-											console.log("OriginCountry=", originCountry);
+											console.log("OriginCity=", originCity);//printing the origin city
+											console.log("OriginCountry=", originCountry);//printing the origin country
 
 										}
 										else {
@@ -163,8 +171,8 @@ cityinput.addEventListener('click', function () {
 
 										if (carrierId == result['Carriers'][k]['CarrierId']) {
 
-											let carrierName = result['Carriers'][k]['Name'];
-											console.log("CarrierName=", carrierName);
+											carrierName = result['Carriers'][k]['Name'];
+											console.log("CarrierName=", carrierName);//printing the carrier name
 											// console.log("\n");
 
 										}
@@ -177,6 +185,35 @@ cityinput.addEventListener('click', function () {
 							// 	break;
 							// }
 							console.log("\n");
+
+							//manipulating the DOM
+							let inforamtion=document.getElementById("information");
+							let divParent=document.createElement("div");
+							let divDepartureDate=document.createElement("div");
+							let divDestinationCity=document.createElement("div");
+							let divDestinationCountry=document.createElement("div");
+							let divOriginCity=document.createElement("div");
+							let divOriginCountry=document.createElement("div");
+							let divCarrierName=document.createElement("div");
+							let divPrice=document.createElement("div");
+
+							divPrice.innerHTML=price;
+							divDepartureDate.innerHTML=departureDate;
+							divDestinationCity.innerHTML=destinationCity;
+							divDestinationCountry.innerHTML=destinationCountry;
+							divOriginCity.innerHTML=originCity;
+							divOriginCountry.innerHTML=originCountry;
+							divCarrierName.innerHTML=carrierName;
+
+							inforamtion.appendChild(divParent);
+							divParent.appendChild(divPrice);
+							divParent.appendChild(divDepartureDate);
+							divParent.appendChild(divOriginCity);
+							divParent.appendChild(divOriginCountry);
+							divParent.appendChild(divDestinationCity);
+							divParent.appendChild(divDestinationCountry);
+							divParent.appendChild(divCarrierName);
+
 						}
 
 					}
