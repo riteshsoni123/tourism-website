@@ -186,7 +186,7 @@ cityinput.addEventListener('click', function () {
 							// }
 							console.log("\n");
 
-							//manipulating the DOM
+							//manipulating the DOM****************************************************************
 							let inforamtion=document.getElementById("information");
 							let divParent=document.createElement("div");
 							let divDepartureDate=document.createElement("div");
@@ -213,6 +213,8 @@ cityinput.addEventListener('click', function () {
 							divParent.appendChild(divDestinationCity);
 							divParent.appendChild(divDestinationCountry);
 							divParent.appendChild(divCarrierName);
+
+							divPrice.classList.add('trial');
 
 						}
 

@@ -112,3 +112,94 @@
 .adv-box div p{
     margin-bottom: 20px;
 }
+
+
+
+.content{
+    border: 2px solid red;
+}
+.carrier{
+    border: 2px solid rgb(255, 196, 0);
+}
+.originPlace{
+    border: 2px solid rgb(0, 255, 13);
+}
+.destinationPlace{
+    border: 2px solid rgb(0, 38, 255);
+}
+.departuretime{
+    border: 2px solid rgb(255, 0, 255);
+}
+.price{
+    border: 2px solid red;
+}
+.places{
+    border: 2px solid red;
+}
+.parent{
+    border: 2px solid red;
+}
+
+
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+}
+.places{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    height: 170px;
+    width: 100%;
+}
+.departuretime{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.originPlace,.destinationPlace{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.originPlace{
+    margin-right: 50px;
+}
+.destinationPlace{
+    margin-left: 50px;
+}
+.midinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+}
+.carrier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 20%;
+}
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 20%;
+}
