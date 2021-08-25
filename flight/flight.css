@@ -115,7 +115,7 @@
 
 
 
-.content{
+/* .content{
     border: 2px solid red;
 }
 .carrier{
@@ -138,7 +138,7 @@
 }
 .parent{
     border: 2px solid red;
-}
+} */
 
 
 
@@ -146,7 +146,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
 }
 .parent{
@@ -155,6 +155,7 @@
     align-items: center;
     flex-direction: row;
     width: 50%;
+    margin-top: 20px;
 }
 .places{
     display: flex;
@@ -163,9 +164,11 @@
     flex-direction: row;
     height: 170px;
     width: 100%;
+    position: relative;
 }
 .departuretime{
     width: 100%;
+    height: 30px;
     display: flex;
     justify-content: center;
 }
@@ -183,11 +186,15 @@
 }
 .midinfo{
     display: flex;
+    /* position: relative; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 60%;
     height: 100%;
+    box-shadow: 2px 2px 15px #b9b9b9;
+    border-radius: 15px;
+    margin: 8px 8px;
 }
 .carrier{
     display: flex;
@@ -195,6 +202,8 @@
     align-items: center;
     height: 200px;
     width: 20%;
+    box-shadow: 2px 2px 15px #b9b9b9;
+    border-radius: 15px;
 }
 .price{
     display: flex;
@@ -202,4 +211,26 @@
     align-items: center;
     height: 200px;
     width: 20%;
+    box-shadow: 2px 2px 15px #b9b9b9;
+    border-radius: 15px;
+}
+.airplane{
+    position: absolute;
+    top: 74px;
+    left: 281px;
+    width: 25px;
+}
+.airplane img{
+    width: 100%;
+}
+.horizontal{
+    position: absolute;
+    top: 25px;
+    left: 145px;
+    width: 130px;
+    height: 64px;
+    overflow: hidden;
+}
+.horizontal img{
+    width: 100%;
 }
