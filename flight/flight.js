@@ -259,24 +259,7 @@ cityinput.addEventListener('click', function () {
 
 							divHorizontal.appendChild(horizontalimg);
 
-
-
-							// divPrice.innerHTML=price;
-							// divDepartureDate.innerHTML=departureDate;
-							// divDestinationCity.innerHTML=destinationCity;
-							// divDestinationCountry.innerHTML=destinationCountry;
-							// divOriginCity.innerHTML=originCity;
-							// divOriginCountry.innerHTML=originCountry;
-							// divCarrierName.innerHTML=carrierName;
-
-							// inforamtion.appendChild(divParent);
-							// divParent.appendChild(divPrice);
-							// divParent.appendChild(divDepartureDate);
-							// divParent.appendChild(divOriginCity);
-							// divParent.appendChild(divOriginCountry);
-							// divParent.appendChild(divDestinationCity);
-							// divParent.appendChild(divDestinationCountry);
-							// divParent.appendChild(divCarrierName);
+							divDepartureTime.appendChild(departurediv);
 
 						}
 
@@ -327,7 +310,7 @@ countryinput.addEventListener('click', function () {
 			})
 				.then(resp => resp.json())
 				.then(dataCity => {
-					// console.log(dataCity);
+					console.log(dataCity);
 					console.log(dataCity['Places']);
 
 					let city = dataCity['Places'];
