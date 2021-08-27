@@ -19,7 +19,6 @@
                 <div class="country input-field">
                     <div>
                         <input list="origin-country" type="text" class="country origin-country input" placeholder="Enter the origin country">
-                        <input type="submit" value="Submit" id="countryinput">
                         <datalist id="origin-country">
                         </datalist>
                     </div>
@@ -29,10 +28,12 @@
                         </datalist>
                     </div>
                 </div>
+                <div class="flight-btn-container">
+                    <input type="submit" value="Search Cities" id="countryinput" class="cityinput flightbutton">
+                </div>
                 <div class="finalinfo input-field">
                     <div>
                         <input list="origin-city" type="text" class="place origin-city input" placeholder="Enter the origin place">
-                        <input type="submit" value="Search flight" id="cityinput">
                         <datalist id="origin-city">
                         </datalist>
                     </div>
@@ -49,6 +50,9 @@
                         <input type="date" class="input" name="trip-start" value="2018-07-22" min="2018-01-01"
                             max="2018-12-31">
                     </div>
+                </div>
+                <div class="flight-btn-container">
+                    <input type="submit" value="Search flight" id="cityinput" class="cityinput flightbutton">
                 </div>
             </div>
         </div>
