@@ -39,11 +39,11 @@ function addListOfCountry() {
 addListOfCountry();
 
 
-origin.value = "IN";
-destination.value = "IN";
+// origin.value = "IN";
+// destination.value = "IN";
 
-originCountryName = "India";
-destinationCountryName = "India";
+originCountryName = "";
+destinationCountryName = "";
 
 
 cityinput.addEventListener('click', function () {
@@ -99,13 +99,13 @@ cityinput.addEventListener('click', function () {
 					let count = 0;
 					let routelength = result['Routes']['length'];
 
-					let departureDate="";
-					let destinationCity="";
-					let destinationCountry="";
-					let originCity="";
-					let originCountry="";
-					let carrierName="";
-					let price="";
+					let departureDate = "";
+					let destinationCity = "";
+					let destinationCountry = "";
+					let originCity = "";
+					let originCountry = "";
+					let carrierName = "";
+					let price = "";
 
 					routelength = Number(routelength);
 					for (let i = 0; i < routelength; i++) {
@@ -187,18 +187,18 @@ cityinput.addEventListener('click', function () {
 							console.log("\n");
 
 							//manipulating the DOM****************************************************************
-							let inforamtion=document.getElementById("information");
+							let inforamtion = document.getElementById("information");
 
-							let divParent=document.createElement("div");
-							let divCarrierName=document.createElement("div");
-							let divmidinfo=document.createElement("div");
-							let divplaces=document.createElement("div");
-							let divOriginPlace=document.createElement("div");
-							let divDestinationPlace=document.createElement("div");
-							let divAirplane=document.createElement("div");
-							let divHorizontal=document.createElement("div");
-							let divDepartureTime=document.createElement("div");
-							let divPrice=document.createElement("div");
+							let divParent = document.createElement("div");
+							let divCarrierName = document.createElement("div");
+							let divmidinfo = document.createElement("div");
+							let divplaces = document.createElement("div");
+							let divOriginPlace = document.createElement("div");
+							let divDestinationPlace = document.createElement("div");
+							let divAirplane = document.createElement("div");
+							let divHorizontal = document.createElement("div");
+							let divDepartureTime = document.createElement("div");
+							let divPrice = document.createElement("div");
 
 							divParent.classList.add("parent");
 							divCarrierName.classList.add("carrier");
@@ -211,25 +211,25 @@ cityinput.addEventListener('click', function () {
 							divDepartureTime.classList.add("departuretime");
 							divPrice.classList.add("price");
 
-							let carrierdiv=document.createElement("div");
-							let originplacediv1=document.createElement("div");
-							let originplacediv2=document.createElement("div");
-							let destinationplacediv1=document.createElement("div");
-							let destinationplacediv2=document.createElement("div");
-							let airplaneimg=document.createElement("img");
-							let horizontalimg=document.createElement("img");
-							let departurediv=document.createElement("div");
-							let pricediv=document.createElement("div");
+							let carrierdiv = document.createElement("div");
+							let originplacediv1 = document.createElement("div");
+							let originplacediv2 = document.createElement("div");
+							let destinationplacediv1 = document.createElement("div");
+							let destinationplacediv2 = document.createElement("div");
+							let airplaneimg = document.createElement("img");
+							let horizontalimg = document.createElement("img");
+							let departurediv = document.createElement("div");
+							let pricediv = document.createElement("div");
 
-							carrierdiv.innerHTML=carrierName;
-							originplacediv1.innerHTML=originCity;
-							originplacediv2.innerHTML=originCountry;
-							destinationplacediv1.innerHTML=destinationCity;
-							destinationplacediv2.innerHTML=destinationCountry;
-							airplaneimg.src="airplane.png";
-							horizontalimg.src="horizontal.png";
-							departurediv.innerHTML=departureDate;
-							pricediv.innerHTML=price;
+							carrierdiv.innerHTML = carrierName;
+							originplacediv1.innerHTML = originCity;
+							originplacediv2.innerHTML = originCountry;
+							destinationplacediv1.innerHTML = destinationCity;
+							destinationplacediv2.innerHTML = destinationCountry;
+							airplaneimg.src = "airplane.png";
+							horizontalimg.src = "horizontal.png";
+							departurediv.innerHTML = departureDate;
+							pricediv.innerHTML = price;
 
 							inforamtion.appendChild(divParent);
 
@@ -287,11 +287,13 @@ countryinput.addEventListener('click', function () {
 			for (let i = 0; i < 243; i++) {
 
 				if (origin.value == country[i]['name']) {
+					originCountryName = origin.value;
 					origin.value = country[i]['code'];
 					// console.log(country[i]['code'])
 					// console.log(origin.value);
 				}
 				if (destination.value == country[i]['name']) {
+					destinationCountryName = destination.value;
 					destination.value = country[i]['code'];
 					// console.log(country[i]['code']);
 					// console.log(destination.value);
@@ -310,7 +312,7 @@ countryinput.addEventListener('click', function () {
 			})
 				.then(resp => resp.json())
 				.then(dataCity => {
-					console.log(dataCity);
+					// console.log(dataCity);
 					console.log(dataCity['Places']);
 
 					let city = dataCity['Places'];
@@ -322,25 +324,50 @@ countryinput.addEventListener('click', function () {
 					// console.log(city);
 					// let count=0;
 
+
 					for (let i = 0; i < length; i++) {
 
-						if (city[i]['CountryName'] == originCountryName) {
 
-							let originElement = document.createElement("option");
-							originElement.value = city[i]['Name'];
-							document.getElementById("origin-city").appendChild(originElement);
-							// console.log(count,city[i]['Name']);
-							// count++;
+						if (originCountryName == destinationCountryName) {
+							if (city[i]['CountryName'] == originCountryName) {
+
+								let originElement = document.createElement("option");
+								originElement.value = city[i]['Name'];
+								document.getElementById("origin-city").appendChild(originElement);
+								// console.log(city[i]['Name']);
+								// count++;
+
+							}
+							if (city[i]['CountryName'] == destinationCountryName) {
+
+								let destinationElement = document.createElement("option");
+								destinationElement.value = city[i]['Name'];
+								document.getElementById("destination-city").appendChild(destinationElement);
+								// console.log(city[i]['Name']);
+								// count++;
+
+							}
 
 						}
-						if (city[i]['CountryName'] == destinationCountryName) {
+						else {
+							if (city[i]['CountryName'] == originCountryName) {
 
-							let destinationElement = document.createElement("option");
-							destinationElement.value = city[i]['Name'];
-							document.getElementById("destination-city").appendChild(destinationElement);
-							// console.log(count,city[i]['Name']);
-							// count++;
+								let originElement = document.createElement("option");
+								originElement.value = city[i]['Name'];
+								document.getElementById("origin-city").appendChild(originElement);
+								// console.log(city[i]['Name']);
+								// count++;
 
+							}
+							else if (city[i]['CountryName'] == destinationCountryName) {
+
+								let destinationElement = document.createElement("option");
+								destinationElement.value = city[i]['Name'];
+								document.getElementById("destination-city").appendChild(destinationElement);
+								// console.log(city[i]['Name']);
+								// count++;
+
+							}
 						}
 
 					}
