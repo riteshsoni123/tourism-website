@@ -1,0 +1,49 @@
+/* .recomendation{
+    border: 2px solid red;
+}
+.row{
+    border: 2px solid rgb(9, 255, 0);
+}
+.box{
+    border: 2px solid #4400ff;
+}
+.image{
+    border: 2px solid red;
+} */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    margin: 30px 0px;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 30%;
+    /* height: 300px; */
+    /* overflow: hidden;
+    border-radius: 15px; */
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 80%;
+    height: 270px;
+}
