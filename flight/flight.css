@@ -292,5 +292,8 @@
     .heading{
         font-size: 30px;
     }
+    .adv-box{
+        width: 51%;
+    }
 }
 
