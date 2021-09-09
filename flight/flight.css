@@ -153,6 +153,12 @@
 .parent{
     border: 2px solid red;
 } */
+/* .airplane{
+    border: 2px solid red;
+}
+.horizontal{
+    border: 2px solid red;
+} */
 
 
 
@@ -173,12 +179,12 @@
 }
 .places{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     height: 170px;
     width: 100%;
-    position: relative;
+    /* position: relative; */
 }
 .departuretime{
     width: 100%;
@@ -193,10 +199,11 @@
     flex-direction: column;
 }
 .originPlace{
-    margin-right: 50px;
+    margin: 0px 3%;
 }
 .destinationPlace{
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    margin: 0px 3%;
 }
 .midinfo{
     display: flex;
@@ -229,20 +236,22 @@
     border-radius: 15px;
 }
 .airplane{
-    position: absolute;
-    top: 74px;
-    left: 281px;
-    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6%;
+    margin: 0px 1%;
 }
 .airplane img{
     width: 100%;
 }
 .horizontal{
-    position: absolute;
-    top: 25px;
-    left: 145px;
-    width: 130px;
-    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 2%;
+    margin: 0px 1%;
     overflow: hidden;
 }
 .horizontal img{
@@ -281,6 +290,9 @@
     .flight-btn-container{
         width: 40%;
     }
+    .parent{
+        width: 75%;
+    }
 }
 @media (max-width:700px){
     .input-field div{
@@ -294,6 +306,12 @@
     }
     .adv-box{
         width: 51%;
+    }
+    .places{
+        flex-direction: column;
+    }
+    .parent{
+        width: 95%;
     }
 }
 

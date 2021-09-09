@@ -247,9 +247,9 @@ cityinput.addEventListener('click', function () {
 							divPrice.appendChild(pricediv);
 
 							divplaces.appendChild(divOriginPlace);
-							divplaces.appendChild(divDestinationPlace);
-							divplaces.appendChild(divAirplane);
 							divplaces.appendChild(divHorizontal);
+							divplaces.appendChild(divAirplane);
+							divplaces.appendChild(divDestinationPlace);
 
 							divOriginPlace.appendChild(originplacediv1);
 							divOriginPlace.appendChild(originplacediv2);
