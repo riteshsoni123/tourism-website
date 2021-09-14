@@ -35,13 +35,13 @@ btn.addEventListener('click', function () {
 
                         console.log(link);
 
-                        let container=document.getElementById("contain");
-                        let div=document.createElement("div");
-                        let img=document.createElement("img");
-                        img.src=link;
+                        let container = document.getElementById("contain");
+                        let div = document.createElement("div");
+                        let img = document.createElement("img");
+                        img.src = link;
                         container.appendChild(div);
                         div.appendChild(img);
-                        
+
                     });
 
             }
