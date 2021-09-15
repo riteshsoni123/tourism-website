@@ -1,0 +1,143 @@
+.hotel-info{
+    border: 2px solid red;
+}
+.hotel{
+    border: 2px solid rgb(157, 255, 0);
+}
+.basic-info{
+    border: 2px solid rgb(17, 0, 255);
+}
+/* .name{
+    border: 2px solid red;
+}
+.address{
+    border: 2px solid red;
+}
+.price{
+    border: 2px solid red;
+}
+.stars{
+    border: 2px solid red;
+} */
+/* .adv-info{
+    border: 2px solid rgb(0, 0, 0);
+}
+.adv-info-box{
+    border: 2px solid rgba(238, 255, 0, 0.582);
+}
+.info{
+    border: 2px solid red;
+} */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.hotel-info,.hotel,.basic-info,.adv-info.info,.adv-info-box,.adv-info-sub{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hotel-info{
+    flex-direction: column;
+    width: 100%;
+}
+.hotel{
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+}
+.basic-info{
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    /* transition: all 0.5s; */
+}
+.adv-info-sub{
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.hotel-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adv-info{
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    display: none;
+    top: 14.7%;
+    width: 100%;
+    background: rgba(0, 0, 0,0.8);
+    color: white;
+    transition: all 0.5s;
+}
+.adv-info-box{
+    flex-direction: column;
+    width: 23%;
+}
+.basic-info:hover + .adv-info{
+    display: flex;
+    opacity: 1;
+    z-index: 10;
+}
+.adv-info:hover{
+    display: flex;
+    opacity: 1;
+    z-index: 10;
+}
+
+
+/* .room-info{
+    border: 2px solid red;
+}
+.room-heading{
+    border: 2px solid rgb(255, 255, 255);
+}
+.room-img{
+    border: 2px solid rgb(0, 255, 21);
+}
+.room-img-box{
+    border: 2px solid rgb(0, 4, 255);
+}
+.img{
+    border: 2px solid rgb(0, 255, 255);
+}
+.room-name{
+    border: 2px solid red;
+} */
+
+.room-info,.room-img,.room-img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+.room-info{
+    flex-direction: column;
+    margin: 30px 0px;
+}
+.room-img{
+    flex-wrap: wrap;
+    width: 100%;
+    /* justify-content: space-around; */
+}
+.room-img-box{
+    flex-direction: column;
+    width: 23%;
+}
+.room-img-box .img{
+    width: 90%;
+    overflow: hidden;
+}
+.room-heading{
+    margin: 15px 0px;
+}

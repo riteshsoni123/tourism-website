@@ -42,8 +42,11 @@ submitCity.addEventListener('click', function () {
                 })
                     .then(resp => resp.json())
                     .then(dataHotels => {
+
                         console.log(i);
                         console.log(dataHotels);
+
+                        let name=dataHotels['name'];
                         let address = dataHotels['address']['fullAddress'];
                         let overview = dataHotels['overview']['overviewSections'];
                         let roomTypeNames = dataHotels['roomTypeNames'];
@@ -63,6 +66,7 @@ submitCity.addEventListener('click', function () {
                         // let price = dataHotels['featuredPrice']['currentPrice']['formatted'];
                         let starrating = dataHotels['starRatingTitle'];
 
+                        console.log(name);
                         console.log(address);
                         // console.log(overview);
                         // console.log(roomTypeNames);
