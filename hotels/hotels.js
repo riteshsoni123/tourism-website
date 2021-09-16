@@ -100,6 +100,7 @@ submitCity.addEventListener('click', function () {
                         divaddress.innerHTML=address;
                         divprice.innerHTML=price;
                         divstars.innerHTML=starrating;
+                        divbasic_info=createBtn(divbasic_info);
 
                         let divadv_info=document.createElement("div");
                         divhotel.appendChild(divadv_info);
@@ -391,33 +392,40 @@ submitCity.addEventListener('click', function () {
         });
 });
 
+// creating the button inside the basic-info class
+let sectionhotel_info=document.querySelector(".hotel-info");
+let childhotel_info=sectionhotel_info.children;
 
-// checkoutDateInfo.value='2021-09-20';
-// checkinDateInfo.value='2021-09-15';
-// adultsno.value='1';
-// fetch(`https://hotels-com-provider.p.rapidapi.com/v1/hotels/booking-details?checkout_date=${checkoutDateInfo.value}&hotel_id=239764&currency=INR&locale=en_US&checkin_date=${checkinDateInfo.value}&adults_number=${adultsno.value}&children_ages=4%2C0`, {
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "hotels-com-provider.p.rapidapi.com",
-//         "x-rapidapi-key": "05dce523ffmshb8fc17a05f8c86ap156854jsn4d098c6ba72f"
-//     }
-// })
-//     .then(resp => resp.json())
-//     .then(dataHotels => {
-//         // console.log(i);
-//         console.log(dataHotels);
-//         let address = dataHotels['address']['fullAddress'];
-//         let overview = dataHotels['overview']['overviewSections'];
-//         let roomTypeNames = dataHotels['roomTypeNames'];
-//         // let rooms = dataHotels['roomsAndRates']['rooms'];
-//         let price = dataHotels['featuredPrice']['currentPrice']['formatted'];
-//         let starrating = dataHotels['starRatingTitle'];
+function createBtn(div){
+    let submit=document.createElement("button");
+    submit.classList.add("btn");
+    div.appendChild(submit);
+    return div;
+}
 
-//         console.log(address);
-//         console.log(overview);
-//         console.log(roomTypeNames);
-//         // console.log(rooms);
-//         console.log(price);
-//         console.log(starrating);
+for(let i=0;i<childhotel_info.length;i++){
+    let divbasic_info=childhotel_info[i].children;
+    createBtn(divbasic_info[0]);
+}
 
-//     });
+// making the us of the button to show the information to the user
+sectionhotel_info.addEventListener('click',(event)=>{
+    if(event.target.tagName==="BUTTON"){
+        let button=event.target;
+        let divbasic_info=button.parentNode;
+        let divhotel=divbasic_info.parentNode;
+        let tmp=divhotel.children;
+        if(button.className==="btn"){
+            let disp=tmp[1].style.display;
+            console.log(disp);
+            tmp[1].style.display="flex";
+            if(disp==="flex"){
+                tmp[1].style.display="none";
+            }
+            else{
+                tmp[1].style.display="flex";
+            }
+            
+        }
+    }
+});

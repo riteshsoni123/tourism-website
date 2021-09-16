@@ -45,13 +45,13 @@
     width: 100%;
 }
 .hotel{
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     overflow: hidden;
 }
 .basic-info{
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     z-index: 1;
     /* transition: all 0.5s; */
@@ -68,7 +68,7 @@
 }
 .adv-info{
     flex-direction: column;
-    position: absolute;
+    /* position: absolute; */
     justify-content: center;
     align-items: center;
     margin-left: 0px;
@@ -84,7 +84,7 @@
     flex-direction: column;
     width: 23%;
 }
-.basic-info:hover + .adv-info{
+/* .basic-info:hover + .adv-info{
     display: flex;
     margin-top: 0px;
     opacity: 1;
@@ -95,7 +95,7 @@
     display: flex;
     opacity: 1;
     z-index: 10;
-}
+} */
 
 
 /* .room-info{
@@ -142,4 +142,9 @@
 }
 .room-heading{
     margin: 15px 0px;
+}
+.btn{
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
 }
