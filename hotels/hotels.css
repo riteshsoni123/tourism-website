@@ -86,10 +86,12 @@
 }
 .basic-info:hover + .adv-info{
     display: flex;
+    margin-top: 0px;
     opacity: 1;
     z-index: 10;
 }
 .adv-info:hover{
+    margin-top: 0px;
     display: flex;
     opacity: 1;
     z-index: 10;
