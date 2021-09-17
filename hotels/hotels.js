@@ -71,7 +71,7 @@ submitCity.addEventListener('click', function () {
                         console.log(starrating);
 
                         let divhotel = createBasicInfo(name, address, price, starrating);
-                        let divadv_info = createdivadv_info(divhotel);
+                        let divadv_info=create(divhotel,"div","adv-info");
                         let divadv_info_sub = createdivadv_info_sub(divadv_info, name);
 
                         let overviewlength = Number(overview['length']);
@@ -195,24 +195,12 @@ submitCity.addEventListener('click', function () {
 
                             console.log(rooms[j]['images'][0]['fullSizeUrl']);
 
-                            let divroom_img_box = document.createElement("div");
-                            let divimg = document.createElement("div");
-                            let divroom_name = document.createElement("div");
-                            let imgimg = document.createElement("img");
-                            let room_nameh1 = document.createElement("h1");
+                            let divroom_img_box=create(divroom_img,"div","room-img-box");
+                            let divimg=create(divroom_img_box,"div","img");
+                            let divroom_name=create(divroom_img_box,"div","room-name");
+                            let imgimg=createNoClass(divimg,"img")
+                            let room_nameh1=createNoClass(divroom_name,"h1");
 
-                            divroom_img_box.classList.add("room-img-box");
-                            divimg.classList.add("img");
-                            divroom_name.classList.add("room-name");
-
-                            divroom_img.appendChild(divroom_img_box);
-
-                            divroom_img_box.appendChild(divimg);
-                            divroom_img_box.appendChild(divroom_name);
-
-                            divimg.appendChild(imgimg);
-
-                            divroom_name.appendChild(room_nameh1);
 
                             room_nameh1.innerHTML = rooms[j]['name']
                             imgimg.src = rooms[j]['images'][0]['fullSizeUrl'];
@@ -272,30 +260,12 @@ sectionhotel_info.addEventListener('click', (event) => {
 function createBasicInfo(name, address, price, starrating) {
 
     let inforamtion = document.getElementById("information");
-
-    let divhotel = document.createElement("div");
-    let divbasic_info = document.createElement("div");
-
-    let divname = document.createElement("div");
-    let divaddress = document.createElement("div");
-    let divprice = document.createElement("div");
-    let divstars = document.createElement("div");
-
-    inforamtion.appendChild(divhotel);
-
-    divhotel.appendChild(divbasic_info);
-
-    divbasic_info.appendChild(divname);
-    divbasic_info.appendChild(divaddress);
-    divbasic_info.appendChild(divprice);
-    divbasic_info.appendChild(divstars);
-
-    divhotel.classList.add("hotel");
-    divbasic_info.classList.add("basic-info");
-    divname.classList.add("name");
-    divaddress.classList.add("address");
-    divprice.classList.add("price");
-    divstars.classList.add("stars");
+    let divhotel=create(inforamtion,"div","hotel");
+    let divbasic_info=create(divhotel,"div","basic-info");
+    let divname=create(divbasic_info,"div","name");
+    let divaddress=create(divbasic_info,"div","address");
+    let divprice=create(divbasic_info,"div","price");
+    let divstars=create(divbasic_info,"div","stars");
 
     divname.innerHTML = name;
     divaddress.innerHTML = address;
@@ -305,91 +275,66 @@ function createBasicInfo(name, address, price, starrating) {
 
     return divhotel;
 }
-
-function createdivadv_info(divhotel) {
-
-    let divadv_info = document.createElement("div");
-    divhotel.appendChild(divadv_info);
-    divadv_info.classList.add("adv-info");
-
-    return divadv_info;
-
-}
-
 function createdivadv_info_sub(divadv_info, name) {
 
-    let divhotel_name = document.createElement("div");
-    let hotel_nameh1 = document.createElement("h1");
-
-    divhotel_name.classList.add("hotel-name");
-
-    divadv_info.appendChild(divhotel_name);
-    divhotel_name.appendChild(hotel_nameh1);
-
+    let divhotel_name=create(divadv_info,"div","hotel-name");
+    let hotel_nameh1=createNoClass(divhotel_name,"h1");
     hotel_nameh1.innerHTML = name;
-
-    let divadv_info_sub = document.createElement("div");
-    divadv_info.appendChild(divadv_info_sub);
-    divadv_info_sub.classList.add("adv-info-sub");
+    let divadv_info_sub=create(divadv_info,"div","adv-info-sub");
 
     return divadv_info_sub;
 }
 
 function createdivheading(divadv_info_box, value) {
 
-    let divheading = document.createElement("div");
-    let headingh1 = document.createElement("h1");
-    divheading.classList.add("heading");
-    divadv_info_box.appendChild(divheading);
-    divheading.appendChild(headingh1);
+    let divheading=create(divadv_info_box,"div","heading");
+    let headingh1=createNoClass(divheading,"h1");
+
     headingh1.innerHTML = value;
 }
 function createinfoul(divadv_info_box) {
 
-    let divinfo = document.createElement("div");
-    let infoul = document.createElement("ul");
-    divinfo.classList.add("info");
-    divadv_info_box.appendChild(divinfo);
-    divinfo.appendChild(infoul);
+    let divinfo=create(divadv_info_box,"div","info");
+    let infoul=createNoClass(divinfo,"ul");
 
     return infoul;
 }
 function createdivadv_info_box(divadv_info_sub) {
 
-    let divadv_info_box = document.createElement("div");
-    divadv_info_box.classList.add("adv-info-box");
-    divadv_info_sub.appendChild(divadv_info_box);
+    let divadv_info_box=create(divadv_info_sub,"div","adv-info-box");
 
     return divadv_info_box;
 }
+//////////////////////////
+function create(parent,childTag,className){
+    let child=document.createElement(childTag);
+    child.classList.add(className);
+    parent.appendChild(child);
+    return child;
+}
+
+function createNoClass(parent,childTag){
+    let child=document.createElement(childTag);
+    parent.appendChild(child);
+    return child;
+}
+//////////////////////////////////////////
 function createinfoulli(infoul, value) {
-    let infoulli = document.createElement("li");
-    infoul.appendChild(infoulli);
+
+    let infoulli=createNoClass(infoul,"li");
     infoulli.innerHTML = value;
 }
 function createdivroom_info(divadv_info) {
-    let divroom_info = document.createElement("div");
-    divroom_info.classList.add("room-info");
-    divadv_info.appendChild(divroom_info);
 
+    let divroom_info=create(divadv_info,"div","room-info")
     return divroom_info;
 }
 function createdivroom_img(divroom_info) {
-    let divroom_heading = document.createElement("div");
-    let room_headingh1 = document.createElement("h1");
 
-    let divroom_img = document.createElement("div");
-
-    divroom_heading.classList.add("room-heading");
-    divroom_img.classList.add("room-img");
-
-
-    divroom_info.appendChild(divroom_heading);
-    divroom_info.appendChild(divroom_img);
-
-    divroom_heading.appendChild(room_headingh1);
-
+    let divroom_heading=create(divroom_info,"div","room-heading");
+    let room_headingh1=createNoClass(divroom_heading,"h1");
     room_headingh1.innerHTML = "Images of Rooms";
+    let divroom_img=create(divroom_info,"div","room-img");
 
     return divroom_img;
 }
