@@ -70,66 +70,27 @@ submitCity.addEventListener('click', function () {
                         console.log(price);
                         console.log(starrating);
 
-                        let divhotel=createBasicInfo(name, address, price, starrating);
-                        // let divadv_info = document.querySelector(".adv-info")
-
-                        let divadv_info = document.createElement("div");
-                        divhotel.appendChild(divadv_info);
-                        divadv_info.classList.add("adv-info");
-
-                        let divhotel_name = document.createElement("div");
-                        let hotel_nameh1 = document.createElement("h1");
-
-                        divhotel_name.classList.add("hotel-name");
-
-                        divadv_info.appendChild(divhotel_name);
-                        divhotel_name.appendChild(hotel_nameh1);
-
-                        hotel_nameh1.innerHTML = name;
-
-                        let divadv_info_sub = document.createElement("div");
-                        divadv_info.appendChild(divadv_info_sub);
-                        divadv_info_sub.classList.add("adv-info-sub");
-
+                        let divhotel = createBasicInfo(name, address, price, starrating);
+                        let divadv_info = createdivadv_info(divhotel);
+                        let divadv_info_sub = createdivadv_info_sub(divadv_info, name);
 
                         let overviewlength = Number(overview['length']);
+
                         for (let j = 0; j < overviewlength; j++) {
                             if (overview[j]['title'] == 'Main amenities') {
 
                                 console.log('Main amenities');
 
-                                let divadv_info_box = document.createElement("div");
-                                let divheading = document.createElement("div");
-                                let headingh1 = document.createElement("h1");
-                                let divinfo = document.createElement("div");
-                                let infoul = document.createElement("ul");
-
-                                divadv_info_box.classList.add("adv-info-box");
-                                divheading.classList.add("heading");
-                                divinfo.classList.add("info");
-
-                                divadv_info_sub.appendChild(divadv_info_box);
-
-                                divadv_info_box.appendChild(divheading);
-                                divadv_info_box.appendChild(divinfo);
-
-                                divheading.appendChild(headingh1);
-
-                                divinfo.appendChild(infoul);
-
-                                headingh1.innerHTML = "Main Amenities"
+                                let divadv_info_box = createdivadv_info_box(divadv_info_sub);
+                                createdivheading(divadv_info_box, "Main Amenities");
+                                let infoul = createinfoul(divadv_info_box);
 
                                 let aminities = overview[j]['content'];
                                 let aminitieslength = Number(aminities['length']);
 
                                 for (let k = 0; k < aminitieslength; k++) {
-
-                                    let infoulli = document.createElement("li");
-                                    infoul.appendChild(infoulli);
-                                    infoulli.innerHTML = aminities[k];
-
+                                    createinfoulli(infoul, aminities[k]);
                                     console.log(aminities[k]);
-
                                 }
 
                                 console.log("\n");
@@ -138,36 +99,17 @@ submitCity.addEventListener('click', function () {
 
                                 console.log('For families');
 
-                                let divadv_info_box = document.createElement("div");
-                                let divheading = document.createElement("div");
-                                let headingh1 = document.createElement("h1");
-                                let divinfo = document.createElement("div");
-                                let infoul = document.createElement("ul");
+                                let divadv_info_box = createdivadv_info_box(divadv_info_sub);
+                                createdivheading(divadv_info_box, "For families");
+                                let infoul = createinfoul(divadv_info_box);
 
-                                divadv_info_box.classList.add("adv-info-box");
-                                divheading.classList.add("heading");
-                                divinfo.classList.add("info");
-
-                                divadv_info_sub.appendChild(divadv_info_box);
-
-                                divadv_info_box.appendChild(divheading);
-                                divadv_info_box.appendChild(divinfo);
-
-                                divheading.appendChild(headingh1);
-
-                                divinfo.appendChild(infoul);
-
-                                headingh1.innerHTML = "For families";
 
                                 let family = overview[j]['content'];
                                 let familylength = Number(family['length']);
 
                                 for (let k = 0; k < familylength; k++) {
 
-                                    let infoulli = document.createElement("li");
-                                    infoul.appendChild(infoulli);
-                                    infoulli.innerHTML = family[k];
-
+                                    createinfoulli(infoul, family[k]);
                                     console.log(family[k]);
 
                                 }
@@ -177,36 +119,17 @@ submitCity.addEventListener('click', function () {
 
                                 console.log('What’s around');
 
-                                let divadv_info_box = document.createElement("div");
-                                let divheading = document.createElement("div");
-                                let headingh1 = document.createElement("h1");
-                                let divinfo = document.createElement("div");
-                                let infoul = document.createElement("ul");
+                                let divadv_info_box = createdivadv_info_box(divadv_info_sub);
+                                createdivheading(divadv_info_box, "What’s around");
+                                let infoul = createinfoul(divadv_info_box);
 
-                                divadv_info_box.classList.add("adv-info-box");
-                                divheading.classList.add("heading");
-                                divinfo.classList.add("info");
-
-                                divadv_info_sub.appendChild(divadv_info_box);
-
-                                divadv_info_box.appendChild(divheading);
-                                divadv_info_box.appendChild(divinfo);
-
-                                divheading.appendChild(headingh1);
-
-                                divinfo.appendChild(infoul);
-
-                                headingh1.innerHTML = "What’s around";
 
                                 let around = overview[j]['content'];
                                 let aroundlength = Number(around['length']);
 
                                 for (let k = 0; k < aroundlength; k++) {
 
-                                    let infoulli = document.createElement("li");
-                                    infoul.appendChild(infoulli);
-                                    infoulli.innerHTML = around[k];
-
+                                    createinfoulli(infoul, around[k]);
                                     console.log(around[k]);
 
                                 }
@@ -231,59 +154,26 @@ submitCity.addEventListener('click', function () {
 
                         console.log("\n");
 
-                        let divadv_info_box = document.createElement("div");
-                        let divheading = document.createElement("div");
-                        let headingh1 = document.createElement("h1");
-                        let divinfo = document.createElement("div");
-                        let infoul = document.createElement("ul");
-
-                        divadv_info_box.classList.add("adv-info-box");
-                        divheading.classList.add("heading");
-                        divinfo.classList.add("info");
-
-                        divadv_info_sub.appendChild(divadv_info_box);
-
-                        divadv_info_box.appendChild(divheading);
-                        divadv_info_box.appendChild(divinfo);
-
-                        divheading.appendChild(headingh1);
-
-                        divinfo.appendChild(infoul);
-
-                        headingh1.innerHTML = "Types of room";
+                        let divadv_info_box = createdivadv_info_box(divadv_info_sub);
+                        createdivheading(divadv_info_box, "Types of rooms");
+                        let infoul = createinfoul(divadv_info_box);
 
                         let roomTypelength = roomTypeNames['length'];
 
-                        console.log('types of rooms');
+                        console.log('Types of rooms');
 
                         for (let j = 0; j < roomTypelength; j++) {
 
                             if (roomTypeNames[j] != "" && roomTypeNames[j] != "x-deleted") {
 
-                                let infoulli = document.createElement("li");
-                                infoul.appendChild(infoulli);
-                                infoulli.innerHTML = roomTypeNames[j];
-
+                                createinfoulli(infoul, roomTypeNames[j]);
                                 console.log(roomTypeNames[j]);
 
                             }
                         }
 
-                        let divroom_info = document.createElement("div");
-                        let divroom_heading = document.createElement("div");
-                        let room_headingh1 = document.createElement("h1");
-                        let divroom_img = document.createElement("div");
-
-                        divroom_info.classList.add("room-info");
-                        divroom_heading.classList.add("room-heading");
-                        divroom_img.classList.add("room-img");
-
-                        divadv_info.appendChild(divroom_info);
-
-                        divroom_info.appendChild(divroom_heading);
-                        divroom_info.appendChild(divroom_img);
-
-                        divroom_heading.appendChild(room_headingh1);
+                        let divroom_info = createdivroom_info(divadv_info);
+                        let divroom_img = createdivroom_img(divroom_info);
 
                         if (rooms == null) {
                             return;
@@ -413,9 +303,93 @@ function createBasicInfo(name, address, price, starrating) {
     divstars.innerHTML = starrating;
     divbasic_info = createBtn(divbasic_info);
 
-
-    /////////////////////
-
-
     return divhotel;
+}
+
+function createdivadv_info(divhotel) {
+
+    let divadv_info = document.createElement("div");
+    divhotel.appendChild(divadv_info);
+    divadv_info.classList.add("adv-info");
+
+    return divadv_info;
+
+}
+
+function createdivadv_info_sub(divadv_info, name) {
+
+    let divhotel_name = document.createElement("div");
+    let hotel_nameh1 = document.createElement("h1");
+
+    divhotel_name.classList.add("hotel-name");
+
+    divadv_info.appendChild(divhotel_name);
+    divhotel_name.appendChild(hotel_nameh1);
+
+    hotel_nameh1.innerHTML = name;
+
+    let divadv_info_sub = document.createElement("div");
+    divadv_info.appendChild(divadv_info_sub);
+    divadv_info_sub.classList.add("adv-info-sub");
+
+    return divadv_info_sub;
+}
+
+function createdivheading(divadv_info_box, value) {
+
+    let divheading = document.createElement("div");
+    let headingh1 = document.createElement("h1");
+    divheading.classList.add("heading");
+    divadv_info_box.appendChild(divheading);
+    divheading.appendChild(headingh1);
+    headingh1.innerHTML = value;
+}
+function createinfoul(divadv_info_box) {
+
+    let divinfo = document.createElement("div");
+    let infoul = document.createElement("ul");
+    divinfo.classList.add("info");
+    divadv_info_box.appendChild(divinfo);
+    divinfo.appendChild(infoul);
+
+    return infoul;
+}
+function createdivadv_info_box(divadv_info_sub) {
+
+    let divadv_info_box = document.createElement("div");
+    divadv_info_box.classList.add("adv-info-box");
+    divadv_info_sub.appendChild(divadv_info_box);
+
+    return divadv_info_box;
+}
+function createinfoulli(infoul, value) {
+    let infoulli = document.createElement("li");
+    infoul.appendChild(infoulli);
+    infoulli.innerHTML = value;
+}
+function createdivroom_info(divadv_info) {
+    let divroom_info = document.createElement("div");
+    divroom_info.classList.add("room-info");
+    divadv_info.appendChild(divroom_info);
+
+    return divroom_info;
+}
+function createdivroom_img(divroom_info) {
+    let divroom_heading = document.createElement("div");
+    let room_headingh1 = document.createElement("h1");
+
+    let divroom_img = document.createElement("div");
+
+    divroom_heading.classList.add("room-heading");
+    divroom_img.classList.add("room-img");
+
+
+    divroom_info.appendChild(divroom_heading);
+    divroom_info.appendChild(divroom_img);
+
+    divroom_heading.appendChild(room_headingh1);
+
+    room_headingh1.innerHTML = "Images of Rooms";
+
+    return divroom_img;
 }
