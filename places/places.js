@@ -2,7 +2,7 @@
 var button = document.querySelector('.btn');
 var inputvalue = document.querySelector('.inputvalue');
 
-btn.addEventListener('click', function () {
+button.addEventListener('click', function () {
 
     let clintid = "L2LEFRWKXUWBUYFATD3B1KZHYSEWT1TKLL3ARBVK04EXFPEW";
     let clintsecret = "3JNNOQPCFFCPVECEQBRHW0XBVOLAKW25CSVARSNOEJJOD4FY";
@@ -105,5 +105,5 @@ function createImages(name, address, link) {
     divhead_info1.innerHTML = name;
     divhead2.innerHTML = "Address:";
     divhead_info2.innerHTML = address;
-    
+
 }

@@ -7,8 +7,8 @@ let adultsno = document.querySelector('.adults');
 
 
 cityinfo.value = 'kolkata';
-checkinDateInfo.value = '2021-09-17';
-checkoutDateInfo.value = '2021-09-20';
+checkinDateInfo.value = '2021-09-19';
+checkoutDateInfo.value = '2021-09-23';
 adultsno.value = '1';
 
 submitCity.addEventListener('click', function () {
@@ -46,19 +46,19 @@ submitCity.addEventListener('click', function () {
                         console.log(i);
                         console.log(dataHotels);
 
-                        let name=dataHotels['name'];
+                        let name = dataHotels['name'];
                         let address = dataHotels['address']['fullAddress'];
                         let overview = dataHotels['overview']['overviewSections'];
                         let roomTypeNames = dataHotels['roomTypeNames'];
-                        let rooms=null;
-                        if(dataHotels['roomsAndRates']!=null){
+                        let rooms = null;
+                        if (dataHotels['roomsAndRates'] != null) {
                             rooms = dataHotels['roomsAndRates']['rooms'];
                         }
-                        let price=null;
-                        if(dataHotels['featuredPrice']!=null){
+                        let price = null;
+                        if (dataHotels['featuredPrice'] != null) {
                             price = dataHotels['featuredPrice']['currentPrice']['formatted'];
                         }
-                        else{
+                        else {
                             console.log("buzz");
                             return;
                         }
@@ -70,53 +70,27 @@ submitCity.addEventListener('click', function () {
                         console.log(price);
                         console.log(starrating);
 
-                        let inforamtion=document.getElementById("information");
+                        let divhotel=createBasicInfo(name, address, price, starrating);
+                        // let divadv_info = document.querySelector(".adv-info")
 
-                        let divhotel=document.createElement("div");
-                        let divbasic_info=document.createElement("div");
-
-                        let divname=document.createElement("div");
-                        let divaddress=document.createElement("div");
-                        let divprice=document.createElement("div");
-                        let divstars=document.createElement("div");
-
-                        inforamtion.appendChild(divhotel);
-
-                        divhotel.appendChild(divbasic_info);
-
-                        divbasic_info.appendChild(divname);
-                        divbasic_info.appendChild(divaddress);
-                        divbasic_info.appendChild(divprice);
-                        divbasic_info.appendChild(divstars);
-
-                        divhotel.classList.add("hotel");
-                        divbasic_info.classList.add("basic-info");
-                        divname.classList.add("name");
-                        divaddress.classList.add("address");
-                        divprice.classList.add("price");
-                        divstars.classList.add("stars");
-
-                        divname.innerHTML=name;
-                        divaddress.innerHTML=address;
-                        divprice.innerHTML=price;
-                        divstars.innerHTML=starrating;
-                        divbasic_info=createBtn(divbasic_info);
-
-                        let divadv_info=document.createElement("div");
+                        let divadv_info = document.createElement("div");
                         divhotel.appendChild(divadv_info);
                         divadv_info.classList.add("adv-info");
 
-                        let divhotel_name=document.createElement("div");
-                        let hotel_nameh1=document.createElement("h1");
+                        let divhotel_name = document.createElement("div");
+                        let hotel_nameh1 = document.createElement("h1");
+
+                        divhotel_name.classList.add("hotel-name");
 
                         divadv_info.appendChild(divhotel_name);
                         divhotel_name.appendChild(hotel_nameh1);
 
-                        hotel_nameh1.innerHTML=name;
+                        hotel_nameh1.innerHTML = name;
 
-                        let divadv_info_sub=document.createElement("div");
+                        let divadv_info_sub = document.createElement("div");
                         divadv_info.appendChild(divadv_info_sub);
                         divadv_info_sub.classList.add("adv-info-sub");
+
 
                         let overviewlength = Number(overview['length']);
                         for (let j = 0; j < overviewlength; j++) {
@@ -124,11 +98,11 @@ submitCity.addEventListener('click', function () {
 
                                 console.log('Main amenities');
 
-                                let divadv_info_box=document.createElement("div");
-                                let divheading=document.createElement("div");
-                                let headingh1=document.createElement("h1");
-                                let divinfo=document.createElement("div");
-                                let infoul=document.createElement("ul");
+                                let divadv_info_box = document.createElement("div");
+                                let divheading = document.createElement("div");
+                                let headingh1 = document.createElement("h1");
+                                let divinfo = document.createElement("div");
+                                let infoul = document.createElement("ul");
 
                                 divadv_info_box.classList.add("adv-info-box");
                                 divheading.classList.add("heading");
@@ -143,16 +117,16 @@ submitCity.addEventListener('click', function () {
 
                                 divinfo.appendChild(infoul);
 
-                                headingh1.innerHTML="Main Amenities"
+                                headingh1.innerHTML = "Main Amenities"
 
                                 let aminities = overview[j]['content'];
                                 let aminitieslength = Number(aminities['length']);
 
                                 for (let k = 0; k < aminitieslength; k++) {
 
-                                    let infoulli=document.createElement("li");
+                                    let infoulli = document.createElement("li");
                                     infoul.appendChild(infoulli);
-                                    infoulli.innerHTML=aminities[k];
+                                    infoulli.innerHTML = aminities[k];
 
                                     console.log(aminities[k]);
 
@@ -164,11 +138,11 @@ submitCity.addEventListener('click', function () {
 
                                 console.log('For families');
 
-                                let divadv_info_box=document.createElement("div");
-                                let divheading=document.createElement("div");
-                                let headingh1=document.createElement("h1");
-                                let divinfo=document.createElement("div");
-                                let infoul=document.createElement("ul");
+                                let divadv_info_box = document.createElement("div");
+                                let divheading = document.createElement("div");
+                                let headingh1 = document.createElement("h1");
+                                let divinfo = document.createElement("div");
+                                let infoul = document.createElement("ul");
 
                                 divadv_info_box.classList.add("adv-info-box");
                                 divheading.classList.add("heading");
@@ -183,16 +157,16 @@ submitCity.addEventListener('click', function () {
 
                                 divinfo.appendChild(infoul);
 
-                                headingh1.innerHTML="For families";
+                                headingh1.innerHTML = "For families";
 
                                 let family = overview[j]['content'];
                                 let familylength = Number(family['length']);
 
                                 for (let k = 0; k < familylength; k++) {
 
-                                    let infoulli=document.createElement("li");
+                                    let infoulli = document.createElement("li");
                                     infoul.appendChild(infoulli);
-                                    infoulli.innerHTML=family[k];
+                                    infoulli.innerHTML = family[k];
 
                                     console.log(family[k]);
 
@@ -203,11 +177,11 @@ submitCity.addEventListener('click', function () {
 
                                 console.log('What’s around');
 
-                                let divadv_info_box=document.createElement("div");
-                                let divheading=document.createElement("div");
-                                let headingh1=document.createElement("h1");
-                                let divinfo=document.createElement("div");
-                                let infoul=document.createElement("ul");
+                                let divadv_info_box = document.createElement("div");
+                                let divheading = document.createElement("div");
+                                let headingh1 = document.createElement("h1");
+                                let divinfo = document.createElement("div");
+                                let infoul = document.createElement("ul");
 
                                 divadv_info_box.classList.add("adv-info-box");
                                 divheading.classList.add("heading");
@@ -222,16 +196,16 @@ submitCity.addEventListener('click', function () {
 
                                 divinfo.appendChild(infoul);
 
-                                headingh1.innerHTML="What’s around";
+                                headingh1.innerHTML = "What’s around";
 
                                 let around = overview[j]['content'];
                                 let aroundlength = Number(around['length']);
 
                                 for (let k = 0; k < aroundlength; k++) {
 
-                                    let infoulli=document.createElement("li");
+                                    let infoulli = document.createElement("li");
                                     infoul.appendChild(infoulli);
-                                    infoulli.innerHTML=around[k];
+                                    infoulli.innerHTML = around[k];
 
                                     console.log(around[k]);
 
@@ -242,35 +216,10 @@ submitCity.addEventListener('click', function () {
 
                                 console.log('HOTEL_FREEBIES');
 
-                                // let divadv_info_box=document.createElement("div");
-                                // let divheading=document.createElement("div");
-                                // let headingh1=document.createElement("h1");
-                                // let divinfo=document.createElement("div");
-                                // let infoul=document.createElement("ul");
-
-                                // divadv_info_box.classList.add("adv-info-box");
-                                // divheading.classList.add("heading");
-                                // divinfo.classList.add("info");
-
-                                // divadv_info_sub.appendChild(divadv_info_box);
-
-                                // divadv_info_box.appendChild(divheading);
-                                // divadv_info_box.appendChild(divinfo);
-
-                                // divheading.appendChild(headingh1);
-
-                                // divinfo.appendChild(infoul);
-
-                                // headingh1.innerHTML="HOTEL_FREEBIES";
-
                                 let freebies = overview[j]['content'];
                                 let freebieslength = Number(freebies['length']);
 
                                 for (let k = 0; k < freebieslength; k++) {
-
-                                    // let infoulli=document.createElement("li");
-                                    // infoul.appendChild(infoulli);
-                                    // infoulli.innerHTML=freebies[k];
 
                                     console.log(freebies[k]);
 
@@ -282,11 +231,11 @@ submitCity.addEventListener('click', function () {
 
                         console.log("\n");
 
-                        let divadv_info_box=document.createElement("div");
-                        let divheading=document.createElement("div");
-                        let headingh1=document.createElement("h1");
-                        let divinfo=document.createElement("div");
-                        let infoul=document.createElement("ul");
+                        let divadv_info_box = document.createElement("div");
+                        let divheading = document.createElement("div");
+                        let headingh1 = document.createElement("h1");
+                        let divinfo = document.createElement("div");
+                        let infoul = document.createElement("ul");
 
                         divadv_info_box.classList.add("adv-info-box");
                         divheading.classList.add("heading");
@@ -301,29 +250,29 @@ submitCity.addEventListener('click', function () {
 
                         divinfo.appendChild(infoul);
 
-                        headingh1.innerHTML="Types of room";
+                        headingh1.innerHTML = "Types of room";
 
-                        let roomTypelength=roomTypeNames['length'];
+                        let roomTypelength = roomTypeNames['length'];
 
                         console.log('types of rooms');
 
-                        for(let j=0;j<roomTypelength;j++){
+                        for (let j = 0; j < roomTypelength; j++) {
 
-                            if(roomTypeNames[j]!=""&&roomTypeNames[j]!="x-deleted"){
+                            if (roomTypeNames[j] != "" && roomTypeNames[j] != "x-deleted") {
 
-                                let infoulli=document.createElement("li");
+                                let infoulli = document.createElement("li");
                                 infoul.appendChild(infoulli);
-                                infoulli.innerHTML=roomTypeNames[j];
+                                infoulli.innerHTML = roomTypeNames[j];
 
                                 console.log(roomTypeNames[j]);
 
                             }
                         }
 
-                        let divroom_info=document.createElement("div");
-                        let divroom_heading=document.createElement("div");
-                        let room_headingh1=document.createElement("h1");
-                        let divroom_img=document.createElement("div");
+                        let divroom_info = document.createElement("div");
+                        let divroom_heading = document.createElement("div");
+                        let room_headingh1 = document.createElement("h1");
+                        let divroom_img = document.createElement("div");
 
                         divroom_info.classList.add("room-info");
                         divroom_heading.classList.add("room-heading");
@@ -336,31 +285,31 @@ submitCity.addEventListener('click', function () {
 
                         divroom_heading.appendChild(room_headingh1);
 
-                        if(rooms==null){
+                        if (rooms == null) {
                             return;
                         }
 
 
-                        let roomLength=rooms['length'];
+                        let roomLength = rooms['length'];
 
-                        for(let j=0;j<roomLength;j++){
+                        for (let j = 0; j < roomLength; j++) {
 
                             // if(rooms[j]['images'])
 
                             console.log(rooms[j]['name']);
 
-                            let imageLength=rooms[j]['images']['length'];
-                            if(imageLength==0){
+                            let imageLength = rooms[j]['images']['length'];
+                            if (imageLength == 0) {
                                 continue;
                             }
 
                             console.log(rooms[j]['images'][0]['fullSizeUrl']);
 
-                            let divroom_img_box=document.createElement("div");
-                            let divimg=document.createElement("div");
-                            let divroom_name=document.createElement("div");
-                            let imgimg=document.createElement("img");
-                            let room_nameh1=document.createElement("h1");
+                            let divroom_img_box = document.createElement("div");
+                            let divimg = document.createElement("div");
+                            let divroom_name = document.createElement("div");
+                            let imgimg = document.createElement("img");
+                            let room_nameh1 = document.createElement("h1");
 
                             divroom_img_box.classList.add("room-img-box");
                             divimg.classList.add("img");
@@ -375,10 +324,10 @@ submitCity.addEventListener('click', function () {
 
                             divroom_name.appendChild(room_nameh1);
 
-                            room_nameh1.innerHTML=rooms[j]['name']
-                            imgimg.src=rooms[j]['images'][0]['fullSizeUrl'];
+                            room_nameh1.innerHTML = rooms[j]['name']
+                            imgimg.src = rooms[j]['images'][0]['fullSizeUrl'];
 
-                            for(let k=0;k<imageLength;k++){
+                            for (let k = 0; k < imageLength; k++) {
                                 console.log(rooms[j]['images'][k]['fullSizeUrl']);
                             }
                             console.log("\n");
@@ -393,39 +342,80 @@ submitCity.addEventListener('click', function () {
 });
 
 // creating the button inside the basic-info class
-let sectionhotel_info=document.querySelector(".hotel-info");
-let childhotel_info=sectionhotel_info.children;
+let sectionhotel_info = document.querySelector(".hotel-info");
+let childhotel_info = sectionhotel_info.children;
 
-function createBtn(div){
-    let submit=document.createElement("button");
+function createBtn(div) {
+    let submit = document.createElement("button");
     submit.classList.add("btn");
     div.appendChild(submit);
     return div;
 }
 
-for(let i=0;i<childhotel_info.length;i++){
-    let divbasic_info=childhotel_info[i].children;
+for (let i = 0; i < childhotel_info.length; i++) {
+    let divbasic_info = childhotel_info[i].children;
     createBtn(divbasic_info[0]);
 }
 
 // making the us of the button to show the information to the user
-sectionhotel_info.addEventListener('click',(event)=>{
-    if(event.target.tagName==="BUTTON"){
-        let button=event.target;
-        let divbasic_info=button.parentNode;
-        let divhotel=divbasic_info.parentNode;
-        let tmp=divhotel.children;
-        if(button.className==="btn"){
-            let disp=tmp[1].style.display;
+sectionhotel_info.addEventListener('click', (event) => {
+    if (event.target.tagName === "BUTTON") {
+        let button = event.target;
+        let divbasic_info = button.parentNode;
+        let divhotel = divbasic_info.parentNode;
+        let tmp = divhotel.children;
+        if (button.className === "btn") {
+            let disp = tmp[1].style.display;
             console.log(disp);
-            tmp[1].style.display="flex";
-            if(disp==="flex"){
-                tmp[1].style.display="none";
+            tmp[1].style.display = "flex";
+            if (disp === "flex") {
+                tmp[1].style.display = "none";
             }
-            else{
-                tmp[1].style.display="flex";
+            else {
+                tmp[1].style.display = "flex";
             }
-            
+
         }
     }
 });
+
+function createBasicInfo(name, address, price, starrating) {
+
+    let inforamtion = document.getElementById("information");
+
+    let divhotel = document.createElement("div");
+    let divbasic_info = document.createElement("div");
+
+    let divname = document.createElement("div");
+    let divaddress = document.createElement("div");
+    let divprice = document.createElement("div");
+    let divstars = document.createElement("div");
+
+    inforamtion.appendChild(divhotel);
+
+    divhotel.appendChild(divbasic_info);
+
+    divbasic_info.appendChild(divname);
+    divbasic_info.appendChild(divaddress);
+    divbasic_info.appendChild(divprice);
+    divbasic_info.appendChild(divstars);
+
+    divhotel.classList.add("hotel");
+    divbasic_info.classList.add("basic-info");
+    divname.classList.add("name");
+    divaddress.classList.add("address");
+    divprice.classList.add("price");
+    divstars.classList.add("stars");
+
+    divname.innerHTML = name;
+    divaddress.innerHTML = address;
+    divprice.innerHTML = price;
+    divstars.innerHTML = starrating;
+    divbasic_info = createBtn(divbasic_info);
+
+
+    /////////////////////
+
+
+    return divhotel;
+}
