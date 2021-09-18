@@ -9,7 +9,7 @@ let destination = document.querySelector('.destination-country');
 let origin_city = document.querySelector('.origin-city');
 let destination_city = document.querySelector('.destination-city');
 
-let departdate=document.querySelector('.departdate');
+let departdate = document.querySelector('.departdate');
 
 let originCountryName = '';
 let destinationCountryName = '';
@@ -189,79 +189,8 @@ cityinput.addEventListener('click', function () {
 							console.log("\n");
 
 							//manipulating the DOM****************************************************************
-							let inforamtion = document.getElementById("information");
 
-							let divParent = document.createElement("div");
-							let divCarrierName = document.createElement("div");
-							let divmidinfo = document.createElement("div");
-							let divplaces = document.createElement("div");
-							let divOriginPlace = document.createElement("div");
-							let divDestinationPlace = document.createElement("div");
-							let divAirplane = document.createElement("div");
-							let divHorizontal = document.createElement("div");
-							let divDepartureTime = document.createElement("div");
-							let divPrice = document.createElement("div");
-
-							divParent.classList.add("parent");
-							divCarrierName.classList.add("carrier");
-							divmidinfo.classList.add("midinfo");
-							divplaces.classList.add("places");
-							divOriginPlace.classList.add("originPlace");
-							divDestinationPlace.classList.add("destinationPlace");
-							divAirplane.classList.add("airplane");
-							divHorizontal.classList.add("horizontal");
-							divDepartureTime.classList.add("departuretime");
-							divPrice.classList.add("price");
-
-							let carrierdiv = document.createElement("div");
-							let originplacediv1 = document.createElement("div");
-							let originplacediv2 = document.createElement("div");
-							let destinationplacediv1 = document.createElement("div");
-							let destinationplacediv2 = document.createElement("div");
-							let airplaneimg = document.createElement("img");
-							let horizontalimg = document.createElement("img");
-							let departurediv = document.createElement("div");
-							let pricediv = document.createElement("div");
-
-							carrierdiv.innerHTML = carrierName;
-							originplacediv1.innerHTML = originCity;
-							originplacediv2.innerHTML = originCountry;
-							destinationplacediv1.innerHTML = destinationCity;
-							destinationplacediv2.innerHTML = destinationCountry;
-							airplaneimg.src = "airplane.png";
-							horizontalimg.src = "horizontal.png";
-							departurediv.innerHTML = departureDate;
-							pricediv.innerHTML = price;
-
-							inforamtion.appendChild(divParent);
-
-							divParent.appendChild(divCarrierName);
-							divParent.appendChild(divmidinfo);
-							divParent.appendChild(divPrice);
-
-							divCarrierName.appendChild(carrierdiv);
-
-							divmidinfo.appendChild(divplaces);
-							divmidinfo.appendChild(divDepartureTime);
-
-							divPrice.appendChild(pricediv);
-
-							divplaces.appendChild(divOriginPlace);
-							divplaces.appendChild(divHorizontal);
-							divplaces.appendChild(divAirplane);
-							divplaces.appendChild(divDestinationPlace);
-
-							divOriginPlace.appendChild(originplacediv1);
-							divOriginPlace.appendChild(originplacediv2);
-
-							divDestinationPlace.appendChild(destinationplacediv1);
-							divDestinationPlace.appendChild(destinationplacediv2);
-
-							divAirplane.appendChild(airplaneimg);
-
-							divHorizontal.appendChild(horizontalimg);
-
-							divDepartureTime.appendChild(departurediv);
+							manipulateDOM(carrierName, originCity, originCountry, destinationCity, destinationCountry, departureDate, price);
 
 						}
 
@@ -382,3 +311,71 @@ countryinput.addEventListener('click', function () {
 
 
 });
+
+function create(parent, childTag, className) {
+	let child = document.createElement(childTag);
+	child.classList.add(className);
+	parent.appendChild(child);
+	return child;
+}
+
+function createNoClass(parent, childTag) {
+	let child = document.createElement(childTag);
+	parent.appendChild(child);
+	return child;
+}
+
+function manipulateDOM(carrierName, originCity, originCountry, destinationCity, destinationCountry, departureDate, price) {
+
+	let inforamtion = document.getElementById("information");
+
+	let divParent = create(inforamtion, "div", "parent");
+
+	let divCarrierName = create(divParent, "div", "carrier");
+
+	let divmidinfo = create(divParent, "div", "midinfo");
+
+	let divplaces = create(divmidinfo, "div", "places");
+
+	let divOriginPlace = create(divplaces, "div", "originPlace");
+
+	let divHorizontal = create(divplaces, "div", "horizontal");
+
+	let divAirplane = create(divplaces, "div", "airplane");
+
+	let divDepartureTime = create(divmidinfo, "div", "departuretime");
+
+	let divDestinationPlace = create(divplaces, "div", "destinationPlace");
+
+	let divPrice = create(divParent, "div", "price");
+
+	let carrierdiv = createNoClass(divCarrierName, "div");
+
+	let originplacediv1 = createNoClass(divOriginPlace, "div");
+
+	let originplacediv2 = createNoClass(divOriginPlace, "div");
+
+	let horizontalimg = createNoClass(divHorizontal, "img");
+
+	let airplaneimg = createNoClass(divAirplane, "img");
+
+	let destinationplacediv1 = createNoClass(divDestinationPlace, "div");
+
+	let destinationplacediv2 = createNoClass(divDestinationPlace, "div");
+
+	let departurediv = createNoClass(divDepartureTime, "div");
+
+	let pricediv = createNoClass(divPrice, "div");
+
+
+	carrierdiv.innerHTML = carrierName;
+	originplacediv1.innerHTML = originCity;
+	originplacediv2.innerHTML = originCountry;
+	destinationplacediv1.innerHTML = destinationCity;
+	destinationplacediv2.innerHTML = destinationCountry;
+	airplaneimg.src = "airplane.png";
+	horizontalimg.src = "horizontal.png";
+	departurediv.innerHTML = departureDate;
+	pricediv.innerHTML = price;
+	
+}
