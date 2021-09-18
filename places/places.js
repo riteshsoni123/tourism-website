@@ -63,42 +63,26 @@ button.addEventListener('click', function () {
 function createImages(name, address, link) {
 
     let placeinformation = document.getElementById("contain");
-    let divplace_info_box = document.createElement("div");
-    let divplace_img = document.createElement("div");
-    let divplace_info = document.createElement("div");
-    let divplace_name = document.createElement("div");
-    let divplace_address = document.createElement("div");
-    let divhead1 = document.createElement("div");
-    let divhead_info1 = document.createElement("div");
-    let divhead2 = document.createElement("div");
-    let divhead_info2 = document.createElement("div");
-    let place_imgimg = document.createElement("img");
 
-    divplace_info_box.classList.add("place-info-box");
-    divplace_img.classList.add("place-img");
-    divplace_info.classList.add("place-info");
-    divplace_name.classList.add("place-name");
-    divplace_address.classList.add("place-address");
-    divhead1.classList.add("head");
-    divhead_info1.classList.add("head-info");
-    divhead2.classList.add("head");
-    divhead_info2.classList.add("head-info");
+    let divplace_info_box=create(placeinformation,"div","place-info-box");
 
-    placeinformation.appendChild(divplace_info_box);
+    let divplace_img=create(divplace_info_box,"div","place-img");
 
-    divplace_info_box.appendChild(divplace_img);
-    divplace_info_box.appendChild(divplace_info);
+    let divplace_info=create(divplace_info_box,"div","place-info");
 
-    divplace_img.appendChild(place_imgimg);
+    let place_imgimg=createNoClass(divplace_img,"img");
 
-    divplace_info.appendChild(divplace_name);
-    divplace_info.appendChild(divplace_address);
+    let divplace_name=create(divplace_info,"div","place-name");
 
-    divplace_name.appendChild(divhead1);
-    divplace_name.appendChild(divhead_info1);
+    let divplace_address=create(divplace_info,"div","place-address");
 
-    divplace_name.appendChild(divhead2);
-    divplace_name.appendChild(divhead_info2);
+    let divhead1=create(divplace_name,"div","head");
+
+    let divhead_info1=create(divplace_name,"div","head-info");
+
+    let divhead2=create(divplace_name,"div","head");
+
+    let divhead_info2=create(divplace_address,"div","head-info");
 
     place_imgimg.src = link;
     divhead1.innerHTML = "Name:";
@@ -106,4 +90,17 @@ function createImages(name, address, link) {
     divhead2.innerHTML = "Address:";
     divhead_info2.innerHTML = address;
 
+}
+
+function create(parent,childTag,className){
+    let child=document.createElement(childTag);
+    child.classList.add(className);
+    parent.appendChild(child);
+    return child;
+}
+
+function createNoClass(parent,childTag){
+    let child=document.createElement(childTag);
+    parent.appendChild(child);
+    return child;
 }

@@ -25,14 +25,12 @@ function addListOfCountry() {
 			// console.log(country);
 			for (let i = 0; i < 243; i++) {
 
-				let originElement = document.createElement("option");
-				let destinationElement = document.createElement("option");
+				let originElement=createNoClass(document.getElementById("origin-country"),"option");
+				let destinationElement=createNoClass(document.getElementById("destination-country"),"option");
 
 				originElement.value = country[i]['name'];
 				destinationElement.value = country[i]['name'];
 
-				document.getElementById("origin-country").appendChild(originElement);
-				document.getElementById("destination-country").appendChild(destinationElement);
 
 			}
 		});
@@ -255,25 +253,24 @@ countryinput.addEventListener('click', function () {
 					// console.log(city);
 					// let count=0;
 
-
+					let datalistorigin_city=document.getElementById("origin-city");
+					let datalistdestination_city=document.getElementById("destination-city");
 					for (let i = 0; i < length; i++) {
 
 
 						if (originCountryName == destinationCountryName) {
 							if (city[i]['CountryName'] == originCountryName) {
 
-								let originElement = document.createElement("option");
+								let originElement=createNoClass(datalistorigin_city,"option");
 								originElement.value = city[i]['Name'];
-								document.getElementById("origin-city").appendChild(originElement);
 								// console.log(city[i]['Name']);
 								// count++;
 
 							}
 							if (city[i]['CountryName'] == destinationCountryName) {
 
-								let destinationElement = document.createElement("option");
+								let destinationElement=createNoClass(datalistdestination_city,"option");
 								destinationElement.value = city[i]['Name'];
-								document.getElementById("destination-city").appendChild(destinationElement);
 								// console.log(city[i]['Name']);
 								// count++;
 
@@ -283,18 +280,16 @@ countryinput.addEventListener('click', function () {
 						else {
 							if (city[i]['CountryName'] == originCountryName) {
 
-								let originElement = document.createElement("option");
+								let originElement=createNoClass(datalistorigin_city,"option");
 								originElement.value = city[i]['Name'];
-								document.getElementById("origin-city").appendChild(originElement);
 								// console.log(city[i]['Name']);
 								// count++;
 
 							}
 							else if (city[i]['CountryName'] == destinationCountryName) {
 
-								let destinationElement = document.createElement("option");
+								let destinationElement=createNoClass(datalistdestination_city,"option");
 								destinationElement.value = city[i]['Name'];
-								document.getElementById("destination-city").appendChild(destinationElement);
 								// console.log(city[i]['Name']);
 								// count++;
 
