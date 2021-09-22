@@ -51,7 +51,7 @@ cityinput.addEventListener('click', function () {
 
 	console.log(departdate.value);
 
-	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${origin.value}/INR/${origin.value}/${origin.value}/${destination.value}/${departdate.value}?inboundpartialdate=2021-08-28`, {
+	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${origin.value}/INR/${origin.value}/${origin.value}/${destination.value}/${departdate.value}?inboundpartialdate=2019-12-01`, {
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-key": "05dce523ffmshb8fc17a05f8c86ap156854jsn4d098c6ba72f",
@@ -86,7 +86,7 @@ cityinput.addEventListener('click', function () {
 			}
 
 
-			fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${origin.value}/INR/${origin.value}/${origin_city.value}/${destination_city.value}/${departdate.value}?inboundpartialdate=2021-08-28`, {
+			fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${origin.value}/INR/${origin.value}/${origin_city.value}/${destination_city.value}/${departdate.value}?inboundpartialdate=2019-12-01`, {
 				"method": "GET",
 				"headers": {
 					"x-rapidapi-key": "05dce523ffmshb8fc17a05f8c86ap156854jsn4d098c6ba72f",
@@ -232,7 +232,7 @@ countryinput.addEventListener('click', function () {
 
 
 
-			fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${origin.value}/INR/${origin.value}/${origin.value}/${destination.value}/2021-09-20?inboundpartialdate=2021-08-28`, {
+			fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${origin.value}/INR/${origin.value}/${origin.value}/${destination.value}/${departdate.value}?inboundpartialdate=2019-12-01`, {
 				"method": "GET",
 				"headers": {
 					"x-rapidapi-key": "05dce523ffmshb8fc17a05f8c86ap156854jsn4d098c6ba72f",

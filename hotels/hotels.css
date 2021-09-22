@@ -121,7 +121,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
 }
 .room-info{
     flex-direction: column;
@@ -130,7 +129,6 @@
 .room-img{
     flex-wrap: wrap;
     width: 100%;
-    /* justify-content: space-around; */
 }
 .room-img-box{
     flex-direction: column;
